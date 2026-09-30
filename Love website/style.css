@@ -1,0 +1,1478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 70, 150, 0.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(150, 70, 255, 0.20),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #160817,
+            #310d2d,
+            #16091f
+        );
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.background-glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.glow-1 {
+    top: -120px;
+    left: -100px;
+    background: #ff4f91;
+
+    animation:
+        glowMove 8s ease-in-out infinite alternate;
+}
+
+.glow-2 {
+    right: -100px;
+    bottom: -120px;
+    background: #9b5cff;
+
+    animation:
+        glowMove 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes glowMove {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(80px, 50px) scale(1.25);
+    }
+}
+
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    opacity: 0;
+
+    animation:
+        floatParticle linear forwards;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255, 100, 180, 0.8)
+        );
+}
+
+@keyframes floatParticle {
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.5);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    85% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.2);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    position: relative;
+    z-index: 5;
+
+    animation: fadeIn 1.5s ease;
+}
+
+.intro-card {
+    width: min(520px, 100%);
+
+    padding: 45px 30px;
+
+    border-radius: 32px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.35),
+
+        inset 0 1px
+        rgba(255, 255, 255, 0.12);
+
+    animation:
+        cardFloat 5s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* Heart */
+
+.heart-wrapper {
+    width: 130px;
+    height: 130px;
+
+    margin: auto;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart {
+    font-size: 82px;
+
+    position: relative;
+    z-index: 2;
+
+    animation:
+        heartbeat 1.2s infinite;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255, 70, 130, 0.8)
+        );
+}
+
+.heart-ring {
+    position: absolute;
+
+    width: 115px;
+    height: 115px;
+
+    border:
+        1px solid
+        rgba(255, 150, 200, 0.5);
+
+    border-radius: 50%;
+
+    animation:
+        ringPulse 2s infinite;
+}
+
+@keyframes ringPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.small-title {
+    margin-top: 15px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.65;
+}
+
+.intro h1 {
+    margin-top: 15px;
+
+    font-size:
+        clamp(28px, 7vw, 42px);
+
+    text-shadow:
+        0 0 25px
+        rgba(255, 100, 170, 0.5);
+}
+
+.intro-text {
+    margin-top: 15px;
+
+    line-height: 1.9;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.love-button,
+.surprise-button {
+    border: 1px solid
+        rgba(255, 255, 255, 0.3);
+
+    border-radius: 50px;
+
+    padding: 15px 28px;
+
+    margin-top: 28px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f91,
+            #a855f7
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(255, 70, 150, 0.35);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.love-button {
+    display: inline-flex;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+.love-button:hover,
+.surprise-button:hover {
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 18px 45px
+        rgba(255, 70, 150, 0.5);
+}
+
+.love-button:active,
+.surprise-button:active {
+    transform: scale(0.96);
+}
+
+.tiny-note {
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    opacity: 0.45;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    display: none;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        mainReveal 1.5s ease;
+}
+
+.main.show {
+    display: block;
+}
+
+@keyframes mainReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 20px 50px;
+}
+
+.hero-badge,
+.section-label {
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #ffb5d2;
+
+    opacity: 0.85;
+}
+
+.hero h1 {
+    margin-top: 20px;
+
+    font-size:
+        clamp(52px, 12vw, 100px);
+
+    line-height: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ff9fc7,
+            #c084fc
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+        drop-shadow(
+            0 10px 30px
+            rgba(255, 80, 160, 0.25)
+        );
+}
+
+.hero h1 span {
+    color: #ff6f9f;
+}
+
+.subtitle {
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+}
+
+.scroll-indicator {
+    margin-top: 70px;
+
+    font-size: 12px;
+
+    opacity: 0.5;
+
+    animation:
+        scrollBounce 2s infinite;
+}
+
+.scroll-indicator div {
+    margin-top: 8px;
+
+    font-size: 24px;
+}
+
+@keyframes scrollBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+
+/* ==================================================
+   PREMIUM MUSIC PLAYER
+================================================== */
+
+.music-section {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 70px 20px;
+
+    text-align: center;
+}
+
+.music-section > .section-label {
+    margin-bottom: 20px;
+}
+
+.music-card {
+    position: relative;
+
+    width: min(480px, 100%);
+
+    margin: auto;
+
+    padding: 40px 25px;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.035)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,0.4);
+}
+
+.music-glow {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    top: -80px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,70,150,0.25);
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+
+/* Album */
+
+.album-area {
+    position: relative;
+
+    width: 155px;
+    height: 155px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.album-heart {
+    width: 120px;
+    height: 120px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    font-size: 58px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f91,
+            #a855f7
+        );
+
+    box-shadow:
+        0 0 45px
+        rgba(255,70,150,0.5);
+
+    animation:
+        musicHeart 1.8s ease-in-out infinite;
+
+    z-index: 2;
+}
+
+.album-ring {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,130,190,0.5);
+
+    animation:
+        albumSpin 8s linear infinite;
+}
+
+.album-ring::before,
+.album-ring::after {
+    content: "✦";
+
+    position: absolute;
+
+    color: #ff9fc7;
+
+    font-size: 14px;
+}
+
+.album-ring::before {
+    top: 5px;
+    left: 50%;
+}
+
+.album-ring::after {
+    bottom: 5px;
+    right: 20px;
+}
+
+@keyframes albumSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes musicHeart {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+/* Song info */
+
+.song-info {
+    margin-top: 25px;
+}
+
+.now-playing {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #ff9fc7;
+
+    opacity: 0.8;
+}
+
+.song-info h2 {
+    margin-top: 8px;
+
+    font-size: 25px;
+}
+
+.song-info p:last-child {
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    opacity: 0.5;
+}
+
+
+/* Equalizer */
+
+.equalizer {
+    height: 38px;
+
+    margin: 25px auto;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+}
+
+.equalizer span {
+    width: 4px;
+    height: 8px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            #ff75a9,
+            #a855f7
+        );
+}
+
+.music-card.playing
+.equalizer span {
+    animation:
+        equalizer 0.7s ease-in-out
+        infinite alternate;
+}
+
+.equalizer span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.equalizer span:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.equalizer span:nth-child(4) {
+    animation-delay: 0.15s;
+}
+
+.equalizer span:nth-child(5) {
+    animation-delay: 0.35s;
+}
+
+.equalizer span:nth-child(6) {
+    animation-delay: 0.2s;
+}
+
+.equalizer span:nth-child(7) {
+    animation-delay: 0.4s;
+}
+
+.equalizer span:nth-child(8) {
+    animation-delay: 0.15s;
+}
+
+.equalizer span:nth-child(9) {
+    animation-delay: 0.3s;
+}
+
+@keyframes equalizer {
+    from {
+        height: 6px;
+    }
+
+    to {
+        height: 34px;
+    }
+}
+
+
+/* Progress */
+
+.progress-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 10px;
+
+    opacity: 0.6;
+}
+
+.progress-area input {
+    flex: 1;
+}
+
+
+/* Range */
+
+input[type="range"] {
+    appearance: none;
+
+    height: 4px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: #ff72a8;
+
+    box-shadow:
+        0 0 10px
+        rgba(255,70,150,0.8);
+}
+
+
+/* Controls */
+
+.music-controls {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+
+    margin-top: 25px;
+}
+
+.control-btn,
+.play-btn {
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+.control-btn {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+.play-btn {
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f91,
+            #a855f7
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,70,150,0.4);
+}
+
+.control-btn:hover,
+.play-btn:hover {
+    transform:
+        translateY(-3px)
+        scale(1.06);
+}
+
+.play-btn:active {
+    transform: scale(0.93);
+}
+
+
+/* Volume */
+
+.volume-area {
+    margin: 25px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    max-width: 180px;
+}
+
+.volume-area input {
+    width: 120px;
+}
+
+
+/* Playing text */
+
+.playing-text {
+    margin-top: 22px;
+
+    font-size: 12px;
+
+    color: #ffabc9;
+
+    opacity: 0.7;
+}
+
+.music-card.playing
+.playing-text {
+    animation:
+        playingGlow 1.5s ease-in-out
+        infinite alternate;
+}
+
+@keyframes playingGlow {
+    from {
+        opacity: 0.45;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-section {
+    padding: 100px 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.message {
+    width: min(650px, 100%);
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.04)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.3);
+}
+
+.message-icon {
+    font-size: 45px;
+
+    animation:
+        heartbeat 1.8s infinite;
+}
+
+.message h2 {
+    margin-top: 15px;
+
+    font-size: 30px;
+}
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 20px auto;
+
+    color: #ff80ad;
+}
+
+.divider span {
+    width: 70px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff80ad
+        );
+}
+
+.divider span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            #ff80ad,
+            transparent
+        );
+}
+
+.message-text {
+    font-size: 18px;
+
+    line-height: 2;
+
+    color:
+        rgba(255,255,255,0.82);
+}
+
+.signature {
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    color: #ff9fc7;
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+.timer-section {
+    padding: 100px 20px;
+
+    text-align: center;
+}
+
+.timer-section h2 {
+    margin-top: 15px;
+
+    font-size: 34px;
+}
+
+.timer-subtitle {
+    margin-top: 10px;
+
+    opacity: 0.6;
+}
+
+.timer {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.time-box {
+    min-width: 105px;
+
+    padding: 20px 14px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    backdrop-filter: blur(15px);
+}
+
+.time-box strong {
+    display: block;
+
+    font-size: 30px;
+
+    color: #ffb0d0;
+}
+
+.time-box span {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.55;
+}
+
+.timer-note {
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    opacity: 0.5;
+}
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+.surprise-section {
+    padding: 80px 20px 120px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.surprise-card {
+    width: min(600px, 100%);
+
+    padding: 50px 25px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,80,150,0.13),
+            rgba(168,85,247,0.13)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.13);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.3);
+}
+
+.gift {
+    font-size: 70px;
+
+    cursor: pointer;
+
+    animation:
+        giftFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes giftFloat {
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+    }
+}
+
+.surprise-card h2 {
+    margin-top: 20px;
+
+    font-size: 30px;
+}
+
+.surprise-card > p {
+    margin-top: 10px;
+
+    opacity: 0.65;
+}
+
+.hidden-message {
+    display: none;
+
+    margin-top: 30px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    animation:
+        surpriseReveal 1s ease;
+}
+
+.hidden-message.show {
+    display: block;
+}
+
+@keyframes surpriseReveal {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.big-heart {
+    font-size: 70px;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+.hidden-message h3 {
+    margin-top: 15px;
+
+    font-size: 27px;
+
+    color: #ff9fc7;
+}
+
+.hidden-message p {
+    margin-top: 15px;
+
+    line-height: 1.9;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 50px 20px 70px;
+
+    text-align: center;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+}
+
+.footer-heart {
+    font-size: 35px;
+
+    animation:
+        heartbeat 1.8s infinite;
+}
+
+footer p {
+    margin-top: 12px;
+
+    opacity: 0.65;
+}
+
+footer span {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.35;
+}
+
+
+/* =========================
+   CLICK HEARTS
+========================= */
+
+.click-heart {
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    font-size: 20px;
+
+    animation:
+        clickHeart 1.2s ease-out forwards;
+}
+
+@keyframes clickHeart {
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% - 120px)
+            )
+            scale(1.4);
+    }
+}
+
+
+/* =========================
+   GENERAL ANIMATIONS
+========================= */
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.12);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.12);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .intro-card {
+        padding: 38px 20px;
+
+        border-radius: 26px;
+    }
+
+    .heart {
+        font-size: 68px;
+    }
+
+    .heart-wrapper {
+        width: 110px;
+        height: 110px;
+    }
+
+    .heart-ring {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .message {
+        padding: 38px 20px;
+    }
+
+    .timer {
+        gap: 8px;
+    }
+
+    .time-box {
+        min-width: 80px;
+
+        padding: 15px 8px;
+    }
+
+    .time-box strong {
+        font-size: 24px;
+    }
+
+    .time-box span {
+        font-size: 9px;
+    }
+
+    /* Music Player Mobile */
+
+    .music-card {
+        padding: 35px 18px;
+    }
+
+    .album-area {
+        width: 135px;
+        height: 135px;
+    }
+
+    .album-heart {
+        width: 105px;
+        height: 105px;
+
+        font-size: 50px;
+    }
+
+    .album-ring {
+        width: 130px;
+        height: 130px;
+    }
+
+    .music-controls {
+        gap: 20px;
+    }
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+    }
+}

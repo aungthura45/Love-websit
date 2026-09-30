@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For You ❤️</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+    <div id="particles"></div>
+
+    <!-- =========================
+         Opening Screen
+    ========================== -->
+
+    <section class="intro" id="intro">
+
+        <div class="intro-card">
+
+            <div class="heart-wrapper">
+                <div class="heart">❤️</div>
+                <div class="heart-ring"></div>
+            </div>
+
+            <p class="small-title">A LITTLE SURPRISE FOR YOU</p>
+
+            <h1>
+                ဟေး... How are you? ❤️
+            </h1>
+
+            <p class="intro-text">
+                တစ်ခုလောက်ကြည့်ပေးပါ...
+                <br>
+                မင်းအတွက် သေချာပြင်ဆင်ထားတာလေးပါ 💕
+            </p>
+
+            <button class="love-button" onclick="startLove()">
+                <span>ဆက်ကြည့်မယ်</span>
+                <span>💕</span>
+            </button>
+
+            <div class="tiny-note">
+                Made with ❤️ just for you
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Main Content
+    ========================== -->
+
+    <main class="main" id="main">
+
+        <!-- Hero -->
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                ✨ A MESSAGE FOR YOU ✨
+            </div>
+
+            <h1>
+                For You <span>❤️</span>
+            </h1>
+
+            <p class="subtitle">
+                ဒီ Video လေးကို မင်းအတွက်ပဲ...
+            </p>
+
+            <div class="scroll-indicator">
+                <span>Scroll down</span>
+                <div>↓</div>
+            </div>
+
+        </section>
+
+
+        <!-- Video -->
+
+        <!-- =========================
+     Premium Music Player
+========================= -->
+
+<section class="music-section">
+
+    <div class="section-label">
+        🎧 A LITTLE SONG FOR YOU
+    </div>
+
+    <div class="music-card">
+
+        <!-- Animated glow -->
+        <div class="music-glow"></div>
+
+        <!-- Album -->
+        <div class="album-area">
+
+            <div class="album-ring"></div>
+
+            <div class="album-heart">
+                ❤️
+            </div>
+
+        </div>
+
+        <!-- Song Info -->
+
+        <div class="song-info">
+
+            <p class="now-playing">
+                ✨ NOW PLAYING
+            </p>
+
+            <h2>
+                Your Special Song
+            </h2>
+
+            <p>
+                Just for you ❤️
+            </p>
+
+        </div>
+
+
+        <!-- Equalizer -->
+
+        <div class="equalizer" id="equalizer">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- Progress -->
+
+        <div class="progress-area">
+
+            <span id="currentTime">
+                00:00
+            </span>
+
+            <input
+                type="range"
+                id="progress"
+                value="0"
+                min="0"
+                max="100"
+            >
+
+            <span id="duration">
+                00:00
+            </span>
+
+        </div>
+
+
+        <!-- Controls -->
+
+        <div class="music-controls">
+
+            <button
+                class="control-btn"
+                id="backBtn"
+            >
+                ↶
+            </button>
+
+            <button
+                class="play-btn"
+                id="playBtn"
+            >
+                ▶
+            </button>
+
+            <button
+                class="control-btn"
+                id="forwardBtn"
+            >
+                ↷
+            </button>
+
+        </div>
+
+
+        <!-- Volume -->
+
+        <div class="volume-area">
+
+            <span>
+                🔊
+            </span>
+
+            <input
+                type="range"
+                id="volume"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.8"
+            >
+
+        </div>
+
+
+        <div class="playing-text" id="playingText">
+            ✨ Waiting for you... ❤️
+        </div>
+
+
+        <!-- Hidden Audio -->
+
+        <audio
+            id="loveAudio"
+            preload="metadata"
+        >
+            <source
+                src="./music/song.mp3"
+                type="audio/mpeg"
+            >
+        </audio>
+
+    </div>
+
+</section>
+
+
+        <!-- Love Message -->
+
+        <section class="message-section">
+
+            <div class="message">
+
+                <div class="message-icon">
+                    💌
+                </div>
+
+                <p class="section-label">
+                    SOMETHING I WANT TO SAY
+                </p>
+
+                <h2>
+                    မင်းကို ပြောချင်တာ...
+                </h2>
+
+                <div class="divider">
+                    <span></span>
+                    ❤️
+                    <span></span>
+                </div>
+
+                <p class="message-text">
+                    တစ်ခုရှိတယ်...<br><br>
+
+                    Video မှာ ဂီတာ ကီးကြောင်နေတာ
+                    <br>
+                    😅❤️
+                </p>
+
+                <div class="signature">
+                    — With Love ❤️
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Love Timer -->
+
+        <section class="timer-section">
+
+            <p class="section-label">
+                ⏳ EVERY MOMENT MATTERS
+            </p>
+
+            <h2>
+                Our Little Journey ❤️
+            </h2>
+
+            <p class="timer-subtitle">
+                အချိန်တွေဘယ်လောက်ကြာခဲ့ပြီလဲ...
+            </p>
+
+            <div class="timer" id="loveTimer">
+
+                <div class="time-box">
+                    <strong id="days">0</strong>
+                    <span>Days</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="hours">0</strong>
+                    <span>Hours</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="minutes">0</strong>
+                    <span>Minutes</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="seconds">0</strong>
+                    <span>Seconds</span>
+                </div>
+
+            </div>
+
+            <p class="timer-note">
+                "Every second is a little memory." ❤️
+            </p>
+
+        </section>
+
+
+        <!-- Surprise -->
+
+        <section class="surprise-section">
+
+            <div class="surprise-card" id="surpriseCard">
+
+                <div class="gift" id="gift">
+                    🎁
+                </div>
+
+                <h2>
+                    One More Thing...
+                </h2>
+
+                <p>
+                    ဒီမှာလည်း တစ်ခုရှိသေးတယ် 👀
+                </p>
+
+                <button
+                    class="surprise-button"
+                    onclick="openSurprise()"
+                >
+                    Surprise ကိုဖွင့်မယ် 💖
+                </button>
+
+                <div
+                    class="hidden-message"
+                    id="hiddenMessage"
+                >
+                    <div class="big-heart">💖</div>
+
+                    <h3>
+                        You Are Special ❤️
+                    </h3>
+
+                    <p>
+                        မင်းအတွက် ဒီ website လေးကို
+                        အမှတ်တရအနေနဲ့ လုပ်ထားတာပါ။
+                        <br><br>
+                        ပြုံးထားနော်... 😊💕
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer>
+            <div class="footer-heart">❤️</div>
+
+            <p>
+                Made with love, just for you.
+            </p>
+
+            <span>
+                ✨ Forever a little memory ✨
+            </span>
+        </footer>
+
+    </main>
+
+
+    <!-- Click Heart Layer -->
+
+    <div id="heartContainer"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
